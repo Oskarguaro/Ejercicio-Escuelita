@@ -248,7 +248,7 @@ class Estudiante extends Persona {
         });
 
         this.notaFinal = (sumatoria/4).toFixed(1);
-        this.cambiarEstado = this.notaFinal
+        this.cambiarEstado = this.notaFinal;
     };
 
     validarEstado(seccion){
@@ -316,7 +316,6 @@ d.addEventListener("click", (e) => {
         $inputEdad.setAttribute("type", "text");
         $inputEdad.setAttribute("name", "edad");
         $inputEdad.setAttribute("placeholder", "Ingrese edad del estudiante");
-        $inputEdad.setAttribute("value", "5");
         $inputEdad.setAttribute("pattern", "^[0-9]{1,2}$");
         $inputEdad.setAttribute("title", "Ingrese una edad válida");
         $inputEdad.setAttribute("required", "");
@@ -412,9 +411,8 @@ function pintarNotaDOM(seccion, materia, nota){
     estudiantes.forEach(el => {
         if(seccion.id === `${el.curso}${el.id}`){
             $pNotaFinal.textContent = el.notaFinal;
+            el.validarEstado(seccion);
         };
-
-        el.validarEstado(seccion);
     });
 };
 
