@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simja Torah</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="div-mensaje"></div>
+
+    <h1>
+        <span>
+            <img class="logo-titulo1" src="imagenes/menorah.png" alt="Menorah">
+        </span>
+            escuela simja Torah
+        <span>
+            <img class="logo-titulo2" src="imagenes/menorah.png" alt="Menorah">
+        </span>
+    </h1>
+
+    <form id="formulario-personas">
+        <select name="tipo">
+            <option value="inicial">--- Ingrese Tipo ---</option>
+            <option value="profesor">Profesor</option>
+            <option value="estudiante">Estudiante</option>
+        </select>        
+        <input
+          type="text"
+          name="nombre"
+          placeholder="Ingrese Nombre"
+          value="Oscar Guarin"
+          pattern="^[a-zA-ZáéíóúÁÉÍÓÚ¨ñÑ\s]+$"
+          minlength="3"
+          maxlength="40"
+          title="Solo puedes ingresar texto y espacios"
+          required>
+        <input
+          type="text"
+          name="id"
+          placeholder="Ingrese Código"
+          value="a1"
+          pattern="[a-zA-Z]{1}\d{1}"
+          title="Ingresa un código válido Eje: A1"
+          required>
+        <input
+          type="text"
+          name="curso"
+          placeholder="Ingrese Curso"
+          value="1a"
+          pattern="\d{1}[a-zA-Z]{1}"
+          title="Ingresa Un número seguido de una letra"
+          required>
+        <button type="submit" class="btn-form">Ingresar</button>
+    </form>
+
+    <div id="div-container">
+        <div class="div-estudiante"></div>
+        <div class="div-profesor"></div>
+    </div>
+
+    <template id="template-estudiante">
+        <section class="seccion-estudiante">
+            <p class="tipo">Estudiante</p>
+            <span class="curso">Curso 1A</span>
+            <p class="id">1aa1</p>
+            <h4 class="nombre">oscar guarin</h4>
+            <p class="edad">5 años</p>
+            <div class="div-notas">
+                <div class="materia">
+                    <p>Matemáticas</p>
+                    <p>Torah</p>
+                    <p>Historia</p>
+                    <p>Ciencias Naturales</p>
+                </div>
+                <div class="nota-parcial">
+                    <p data-name="Matemáticas">-</p>
+                    <p data-name="Torah">-</p>
+                    <p data-name="Historia">-</p>
+                    <p data-name="Ciencias Naturales">-</p>
+                </div>
+                <div class="nota-final">
+                    <section>Nota Final</section>
+                    <p>-</p>
+                </div>
+            </div>
+            <p class="estado estado-false">Reprobado</p>
+        </section>
+    </template>
+
+    <template id="template-profesor">
+        <section class="seccion-profesor">
+            <span class="tipo">Profesor</span>
+            <span class="curso">Curso 1A</span>
+            <span class="id">1AA1</span>
+            <h4 class="nombre">pablo perez</h4>
+            <button class="btn-lista">Cargar Lista</button>
+            <button class="btn-actualizar" disabled>Actualizar Lista</button>
+            <form class="form-calificar">
+                <select class="lista-materias" name="materia">
+                    <option value="ini-mat">--Seleccione Materia--</option>
+                    <option value="Matemáticas">Matemáticas</option>
+                    <option value="Torah">Torah</option>
+                    <option value="Historia">Historia</option>
+                    <option value="Ciencias Naturales">Ciencias Naturales</option>
+                </select>
+                <select class="lista-estudiantes" name="estudiante">
+                    <option value="ini-est">--Seleccione Estudiante--</option>
+                </select>
+                <input
+                  type="text"
+                  class="nota-calificar"
+                  name="nota"
+                  value="4"
+                  placeholder="Ingrese nota"
+                  pattern="^[0-5]{1}(\.[0-9]){0,1}$"
+                  title="Ingrese una nota de 1 a 5 (Eje: 4.6)"
+                  required>
+                <button class="btn-calificar" type="submit">Calificar</button>
+            </form>
+        </section>
+    </template>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
